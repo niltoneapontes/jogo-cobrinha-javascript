@@ -16,6 +16,24 @@ var settings = {
 
 var score = 0;
 
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
+
+var eat = new sound("sounds/eat.m4a");
+var GameOver = new sound("sounds/game-over.m4a")
+
 document.getElementById("settingsMenu").addEventListener("click", settingsMenu);
     
 function settingsMenu(event){
@@ -79,6 +97,7 @@ function iniciarJogo(){
     for(let i = 1; i < snake.length; i++){
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
             clearInterval(jogo);
+            GameOver.play();
             alert("GAME OVER. Recarregue para jogar novamente");
         }
     }
@@ -102,6 +121,7 @@ function iniciarJogo(){
     }
     else{
         score += 1;
+        eat.play();
         food.x = Math.floor(Math.random() * 14 + 1) * box;
         food.y = Math.floor(Math.random() * 14 + 1) * box;
     }
