@@ -39,8 +39,7 @@ document.getElementById("settingsMenu").addEventListener("click", settingsMenu);
     
 function settingsMenu(event){
 
-    settings.sound = prompt('Deseja retirar o som? [S/N]');
-    if(settings.sound === 'S') soundtrack.stop();
+    settings.sound = prompt('Deseja retirar a música? [S/N]');
 
     settings.corBg = prompt("Digite o código HEX da cor desejada para o Background (Caso não deseje personalizar, pressione ENTER):").toString();
 
