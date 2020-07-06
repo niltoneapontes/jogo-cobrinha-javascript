@@ -16,14 +16,16 @@ body{
 
 
 #header-score h2{
-    margin-top: 0;
-    margin-left: 2rem;
+    margin: 0;
+    font-size: 12px;
 }
 
 #header-score h1{
     font-family: "MuseoModerno", Arial, sans-serif;
-    font-size: 42px;
+    font-size: 40px;
+    text-align: center;
     color: #048BA8;
+    margin: 0;
 }
 
 canvas{
@@ -33,7 +35,7 @@ canvas{
 
 button{
     width: 496px;
-    height: 52px;
+    height: 32px;
     background-color: #048BA8;
     color: #eee;
     font-family: "Roboto", Arial, sans-serif;
