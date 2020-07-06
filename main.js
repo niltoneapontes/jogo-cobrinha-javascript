@@ -32,11 +32,15 @@ function sound(src) {
   }
 
 var eat = new sound("sounds/eat.m4a");
-var GameOver = new sound("sounds/game-over.m4a")
+var GameOver = new sound("sounds/game-over.m4a");
+var soundtrack = new sound("sounds/background.mp3");
 
 document.getElementById("settingsMenu").addEventListener("click", settingsMenu);
     
 function settingsMenu(event){
+
+    settings.sound = prompt('Deseja retirar o som? [S/N]');
+    if(settings.sound === 'S') soundtrack.stop();
 
     settings.corBg = prompt("Digite o código HEX da cor desejada para o Background (Caso não deseje personalizar, pressione ENTER):").toString();
 
@@ -88,6 +92,8 @@ function update(event){
 
 function iniciarJogo(){
 
+    soundtrack.play();
+    
     if(snake[0].x > 13 * box && direction == "right") snake[0].x = 0;
     if(snake[0].x < 1 && direction == "left") snake[0].x = 15 * box;
 
