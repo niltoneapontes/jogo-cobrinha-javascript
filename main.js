@@ -92,7 +92,7 @@ function update(event){
 
 function iniciarJogo(){
 
-    soundtrack.play();
+    settings.sound ? soundtrack.stop() : soundtrack.play();
     
     if(snake[0].x > 13 * box && direction == "right") snake[0].x = 0;
     if(snake[0].x < 1 && direction == "left") snake[0].x = 15 * box;
